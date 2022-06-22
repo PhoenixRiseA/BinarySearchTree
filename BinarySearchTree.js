@@ -55,7 +55,21 @@ class BST {
         }
         return current;
     }
-
+    
+    preOrder() {
+        if (this.root == null) {
+          return null;
+        } else {
+          var result = new Array();
+          function traversePreOrder(node) {
+            result.push(node.data);
+            node.left && traversePreOrder(node.left);
+            node.right && traversePreOrder(node.right);
+          };
+          traversePreOrder(this.root);
+          return result;
+        };
+      }
 }
 
 const bst = new BST();
@@ -70,5 +84,5 @@ bst.add(5);
 bst.add(7);
 bst.add(20);
 
-console.log(bst.find(4));
+console.log(bst.preOrder());
 
