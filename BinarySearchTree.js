@@ -69,7 +69,48 @@ class BST {
           traversePreOrder(this.root);
           return result;
         };
-      }
+    }
+
+    
+    findMin() {
+        let current = this.root;
+        while (current.left !== null) {
+          current = current.left;
+        }
+        return current.data;
+    }
+    findMax() {
+        let current = this.root;
+        while (current.right !== null) {
+          current = current.right;
+        }
+        return current.data;
+    }
+
+
+    // preOrder(){
+    //     if(this.root == null){
+    //         return null;
+    //     }
+
+    //     let result = new Array();
+
+    //     result.push(this.root);
+
+    //     while(result){
+    //         let curr = result.pop();
+
+    //         console.log(curr.data);
+
+    //         if(curr.right){
+    //             result.push(curr.right);
+    //         }
+
+    //         if(curr.left){
+    //             result.push(curr.left);
+    //         }
+    //     }
+    // }
 }
 
 const bst = new BST();
@@ -84,5 +125,5 @@ bst.add(5);
 bst.add(7);
 bst.add(20);
 
-console.log(bst.preOrder());
+console.log(bst.findMin());
 
